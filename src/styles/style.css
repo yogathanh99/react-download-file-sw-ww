@@ -211,6 +211,7 @@ p {
 
 .button-el:hover {
   border: 2px solid #f5f5f1;
+  color: white;
 }
 
 .button-el[data-primary="true"] {

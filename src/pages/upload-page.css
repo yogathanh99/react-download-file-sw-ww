@@ -1,0 +1,22 @@
+.wrapper-upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.upload-title {
+  font-size: 30px;
+}
+
+.upload-file {
+  padding: 0 20px;
+  height: 20vh;
+}
+
+.upload-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}

@@ -1,0 +1,20 @@
+.upload-icon {
+  position: absolute;
+  color: white;
+  right: 50px;
+  top: 20px;
+}
+
+.upload-icon .ant-btn {
+  background-color: #4ed964;
+  width: 40px;
+  height: 40px;
+}
+
+.upload-icon .ant-btn:hover {
+  background-color: #73eb85;
+}
+
+.upload-icon .anticon {
+  font-size: 20px;
+}
