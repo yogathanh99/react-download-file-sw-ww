@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import CryptoJS from "crypto-js";
 import WebWorker from "../../workerSetup";
 import webWorker from "../../worker";
 import Movie from "./movie";
+import { decryptData } from "../../utils/encryptAndDecryptData";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +21,9 @@ const Movies = () => {
 
       worker.addEventListener("message", (e) => {
         setLoading(false);
-        setMovies(e?.data?.url);
+        const ciphertext = e?.data?.ciphertext;
+        const decryptedData = decryptData(ciphertext);
+        setMovies(decryptedData);
       });
     }
   }, [worker]);

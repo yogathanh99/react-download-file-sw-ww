@@ -6,6 +6,7 @@ import { precacheAndRoute } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate, CacheFirst } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { AES, enc } from "crypto-js";
 
 clientsClaim();
 
@@ -38,8 +39,10 @@ registerRoute(
 
 registerRoute(
   ({ url }) =>
-    url.origin === "https://api.themoviedb.org" &&
-    url.pathname.startsWith("/3/discover/movie"),
+    url.origin === "http://localhost:1234" &&
+    url.pathname.startsWith("/api/data/fetch"),
+  // url.origin === "https://api.themoviedb.org" &&
+  // url.pathname.startsWith("/3/discover/movie"),
   new StaleWhileRevalidate({
     cacheName: "movie-api-response",
     plugins: [

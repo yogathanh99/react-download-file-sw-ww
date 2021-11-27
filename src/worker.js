@@ -3,17 +3,29 @@
 
 export default () => {
   self.addEventListener("message", (e) => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.des&api_key=${process.env.API_KEY}`
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        postMessage({ url: res.results });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const url = "http://localhost:1234/api/data";
+    if (e.data === "Fetch") {
+      fetch(`${url}/fetch`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          postMessage({ ciphertext: res });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else if (e.data === "GetUploads") {
+      fetch(`${url}/get-uploads`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          postMessage({ uploads: res });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   });
 };

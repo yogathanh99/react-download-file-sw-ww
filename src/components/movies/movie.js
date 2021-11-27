@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { AES } from "crypto-js";
 import axios from "axios";
 import "./movie.css";
 
@@ -17,6 +18,7 @@ const Movie = ({ movie }) => {
       link.click();
     });
   };
+
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 mb-4 px-2">
       <div className="mb-8 text-white">
